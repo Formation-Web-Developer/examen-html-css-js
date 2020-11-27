@@ -74,8 +74,10 @@ function infiniteScroll(){
                 addCar($('#cars'), getNextCarFakeAjax(), id);
                 id++;
             }
-            /* Je modifie le nombre de résultat sur la page. */
-            $('#resultCount').text(id);
+            /*
+                Je modifie le nombre de résultat sur la page grace à l'identifiant qui représente le nombre de voiture déjà disponible.
+             */
+            $('#resultCount').text(id-1);
         }
     });
 }
