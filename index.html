@@ -65,6 +65,7 @@
                 <h1 class="text-center text-white">Bienvenue à bord</h1>
                 <p class="text-center text-white">Location de voiture 24h/24 et 7j/7</p>
     
+                <!-- Formulaire de location dans le header-->
                 <form action="#" method="post" class="header-form row" onsubmit="return false">
                     <div class="col-12 col-lg-9">
                         <div class="controllers row">
@@ -77,6 +78,8 @@
                                     <option value="address-4">Adresse 4</option>
                                 </select>
                             </div>
+                            <!-- Les inputs de datetime. Ils sont modifier a partir de l'évent focus et blur.
+                                 Cela à pour effet de faire fonctionner le placeholder et de le retransformé en datetime lorsque l'utilisateur clique dessus. -->
                             <div class="form-group input-group-sm col-12 col-md-4 mb-md-0">
                                 <input name="startLocation" class="form-control" type="text" placeholder="Début de location" onfocus="focusInput(this)" onblur="blurInput(this)">
                             </div>
@@ -92,8 +95,11 @@
                 </form>
             </div>
             
+            <!-- Carousel du header géré par JS. -->
             <div class="custom-carousel">
+                <!-- Image visible -->
                 <div class="custom-carousel-item"></div>
+                <!-- Image en fond pour avoir une jolie animation de fondu entre l'image visible et la suivante.-->
                 <div class="custom-carousel-item"></div>
             </div>
         </header>
@@ -102,7 +108,9 @@
         <!-- Comme d'après l'énoncé nous devons adapter le site sur tous les navigateurs mais que IE n'est pas ciblé, je peux utiliser la balise <main> -->
         <main class="container">
             <div>
-                <p class="result py-2 my-0"><span class="font-weight-bold">7</span> résultats</p>
+                <!-- Nombre de résultat sur la page. Dynamique sur JS: A chaque fois que j'ajoute des voitures, je modifie cette valeur. -->
+                <p class="result py-2 my-0"><span id="resultCount" class="font-weight-bold">4</span> résultats</p>
+                <!-- Bouton des filtres des arcticle. (Non fonctionnel) -->
                 <div class="d-flex justify-content-end">
                     <div class="btn-group btn-gray">
                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -116,10 +124,14 @@
                 </div>
             </div>
             
-            <div id="cars" class="articles">
-                
+            <!-- Section des voitures -->
+            <section id="cars" class="articles">
+    
+                <!-- 1ère voiture -->
                 <div class="article row">
+                    <!-- Première colonne pour le carousel de la voiture -->
                     <div class="col-7 col-md-6 col-lg-4">
+                        <!-- Carousel Bootstrap de la voiture -->
                         <div id="carouselArticle1" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -132,11 +144,14 @@
                                     <img src="assets/img/vehicule1.png" class="d-block w-100" alt="Image de la voiture Peugeot 208">
                                 </div>
                             </div>
+                            <!-- Controllers du carousel bootstrap -->
                             <a class="carousel-control-prev" href="#carouselArticle1" role="button" data-slide="prev">
+                                <!-- Je change l'icon du controle gauche par celui de fontawesome -->
                                 <i class="fas fa-caret-left" aria-hidden="true"></i>
                                 <span class="sr-only">Previous</span>
                             </a>
                             <a class="carousel-control-next" href="#carouselArticle1" role="button" data-slide="next">
+                                <!-- Je change l'icon du controle droit par celui de fontawesome -->
                                 <i class="fas fa-caret-right" aria-hidden="true"></i>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -159,7 +174,7 @@
                 </div>
     
     
-    
+                <!-- 2ème voiture -->
                 <div class="article row">
                     <div class="col-7 col-md-6 col-lg-4">
                         <div id="carouselArticle2" class="carousel slide" data-ride="carousel">
@@ -200,9 +215,7 @@
                     </div>
                 </div>
     
-    
-    
-    
+                <!-- 3ème voiture -->
                 <div class="article row">
                     <div class="col-7 col-md-6 col-lg-4">
                         <div id="carouselArticle3" class="carousel slide" data-ride="carousel">
@@ -242,9 +255,8 @@
                         </div>
                     </div>
                 </div>
-    
-    
-    
+                
+                <!-- 4ème voiture -->
                 <div class="article row">
                     <div class="col-7 col-md-6 col-lg-4">
                         <div id="carouselArticle4" class="carousel slide" data-ride="carousel">
@@ -284,11 +296,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </main>
         
+        <!-- Mise en place du footer -->
         <footer>
+            <!-- Image de l'agence, je la cache quand c'est en formant smartphone -->
             <img src="assets/img/agence.jpg" alt="Image de la rue de l'agence" class="d-none d-md-block">
+            <!-- Adresse de l'agence -->
             <div class="address">
                 <p>Notre Agence de <span class="font-weight-bold">Paris</span></p>
                 <p>300 Boulevard de vaugirard, 75015, Paris</p>

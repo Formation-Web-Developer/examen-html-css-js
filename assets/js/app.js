@@ -74,6 +74,8 @@ function infiniteScroll(){
                 addCar($('#cars'), getNextCarFakeAjax(), id);
                 id++;
             }
+            /* Je modifie le nombre de résultat sur la page. */
+            $('#resultCount').text(id);
         }
     });
 }
