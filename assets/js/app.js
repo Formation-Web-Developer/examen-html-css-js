@@ -62,13 +62,23 @@ function launchCarousel(duration) {
 
 /**
  * Permet de placer des nouveaux articles si l'utilisateur arrive en bas de page.
+ * J'en profite également pour changer la couleur du menu burger s'il se trouve en dessous du header.
  */
 function infiniteScroll(){
     const $window = $(window);
+    const burger = $('#burger');
+    const main = $('main');
     let id = 5;
     $window.scroll(()=>{
+        const scrollTop = $window.scrollTop();
+        /* J'enlève ou je retire la couleur du menu burger s'il se trouve ou non en dessus du début de la balise main. */
+        if(scrollTop >= main.offset().top){
+            burger.addClass('text-dark');
+        }else {
+            burger.removeClass('text-dark');
+        }
         // Je mets 2 pixels de sécurité pour avoir une petite sécurité suivant les navigateurs.
-        if($window.scrollTop()+2 >= ($(document).height() - $window.height())){
+        if(scrollTop+2 >= ($(document).height() - $window.height())){
             //J'ajoute 4 nouveau véhicule à la page.
             for(let i = 0; i < 4; i++){
                 addCar($('#cars'), getNextCarFakeAjax(), id);
