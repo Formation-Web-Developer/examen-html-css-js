@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Je donne une font à ma page. */
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* CSS pour le Header */
+
+/* J'indique que mon header est relative. */
+.header{ position: relative;}
+
+/* Je mets un padding sur le container de mon header */
+/* Par ailleurs, j'utilise le rem pour rester en corrélation avec Bootstrap */
+.header-container{ padding: 3rem;}
+
+/*
+  Vu que ma navbar est en fixed, j'indique qu'il doit passer par dessus tout mes éléments.
+  J'ai volontairement choisi de mettre un nombre plus élevé pour éviter tout problème avec bootstrap.
+*/
+.navbar.position-fixed{ z-index: 10;}
+
+/* Je change la couleur du background mon menu burger lorsque le menu est ouvert */
+.navbar-toggler[aria-expanded=true]{ background-color: #ddd;}
+
+/* Je change la couleur de mon menu burger lorsque le menu est ouvert */
+.navbar-toggler[aria-expanded=true] span{ color: #888!important;}
+
+/*
+  Je double les valeurs par défaut du container que bootstrap propose par défaut. Afin que mon formulaire ai bien ses padding de
+  chaque coté. (Le row les annules sinon)
+*/
+.header-container{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* CSS du Formulaire dans le header */
+.header-form{ padding: 7rem 0;}
+
+/* Je donne une petites couleurs transparent à l'arrière de mes inputs. */
+.controllers{
+    background-color: #ffffffaa;
+    padding: .7rem 0;
+}
+
+/* Je change le design du bouton submit du formulaire. */
+.form-submit{
+    border-radius: 0;
+    background-color: #559E52F0;
+    text-align: center;
+    width: 100%;
+    border: none;
+    padding: .7rem 0;
+    color: #fff;
+}
+
+
+/* Je donne du css par défaut à mon carousel (Ensuite le reste se fait dans le JS) */
+/*
+  Je donne une position absolute a mon carousel afin qu'ils sortent du flux.
+  J'indique également qu'il doit prendre la totalité de la place disponible.
+*/
+.custom-carousel, .custom-carousel-item{
+    position: absolute;
+    z-index: -1;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+}
+/*
+  Je mets mon image visible du carousel et j'indique qu'il doit se trouvé juste 1 cran en arrière afin qu'il passe derrière mes éléments.
+  Il doit également prendre toute la taille possible et ne pas se répéter.
+
+  J'indique un scaleX pour le bon fonctionnement du JS.
+*/
+.custom-carousel-item{
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transform: scaleX(1);
+}
+/*
+  Je mets ma seconde image derrière ma première image pour donné un bon effet lors de mon animation.
+  Pour l'animation j'ai juste choisir de faire flipper mon image sur l'axe X.
+ */
+.custom-carousel-item:last-child{
+    z-index: -2;
+    transform: scaleX(-1);
+}
+
+/* CSS pour le contenu principal de la page. */
+
+/* Je mets le résultat moins gras que le nombre avant. */
+.result{
+    font-weight: 600;
+}
+
+/* Je donne la couleur grise à mon bouton dropdown pour les filtres. */
+.btn-gray{
+    background: linear-gradient(#FFF, #E0E0E0);
+    border: 1px solid #dddddd;
+    border-radius: .2rem;
+}
+
+/* CSS des Articles */
+/* Je donne un petit padding en haut et en bas de la liste des articles. */
+.articles{ padding: 1rem 0;}
+
+/* Je donne un padding ainsi qu'une petite bordure en bas d'un article. */
+.article{
+    border-bottom: 1px solid #eee;
+    padding-bottom: 3rem;
+}
+
+/* Je donne un padding en haut de tout les articles qui ne se trouvent pas en première position. */
+.article:not(:first-child){
+    padding-top: 3rem;
+}
+
+/* Je change l'opacité par défaut que boostrap mets sur leurs boutons de leur carousel. */
+.carousel-control-next, .carousel-control-prev{ opacity: 1;}
+
+/* Je change la couleur des boutons du carousel ainsi que leurs tailles */
+.fa-caret-left, .fa-caret-right{
+    color: black;
+    font-size: 2rem;
+}
+
+/* CSS du footer */
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 7rem;
+}
+
+/* Je donne une nouvelle size a l'image de l'agence. */
+footer img{ width: 10rem;}
+
+/* Je mets une petit gouttière entre l'image et l'adresse */
+.address{ padding: 1rem;}
+
+/* Je retire le margin bottom des balises p de l'adresse */
+.address p{ margin-bottom: 0;}
+
+/* TODO: A voir si je laisse ça. */
+.reverse-color{
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    font-style: italic;
+}
+
+/*
+  CSS Suivant des cas spécifique sur écran moyen et large.
+  Pour les tailles je me suis fixé sur ce que proposait bootstrap afin de garder la même règle.
+*/
+@media screen and (min-width: 768px) {
+    /* Je change la position du formulaire pour la version tablette et plus. */
+    .header-form{ padding: 14rem 0 0;}
+}
+
+@media screen and (min-width: 992px) {
+    /* Je force la hauteur du bouton submit du formulaire. */
+    .form-submit{ height: 100%;}
+}
+
+@media screen and (min-width: 1200px){
+    /* Je change la taille maximum du container de bootstrap que j'ai placé dans le header. */
+    .header .container{
+        max-width: 960px;
+    }
+}
